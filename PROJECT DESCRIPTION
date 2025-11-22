@@ -1,0 +1,23 @@
+Project Description – Hangman Game (Python)
+
+This project is a simple command-line based Hangman Game written in Python. The game randomly selects a fruit name from a predefined list, and the player must guess the word letter-by-letter within a limited number of chances.
+
+At the start, the program displays blank underscores representing each letter in the secret word. The player enters one letter at a time and the program reveals all correct matches in the word. Incorrect, repeated, or invalid inputs are handled gracefully with appropriate messages.
+
+The number of attempts is limited based on the length of the secret word. The game ends either when the player successfully guesses all letters or runs out of chances. Finally, the program displays the winning message or reveals the correct word if the player loses.
+
+This project demonstrates:
+
+Basic Python I/O
+
+Random word selection
+
+Looping and conditional logic
+
+String manipulation
+
+Error handling using try-except
+
+Basic usage of collections.Counter
+
+It is ideal for beginners learning Python essentials, game logic, and interactive console applications.
