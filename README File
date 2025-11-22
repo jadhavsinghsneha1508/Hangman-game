@@ -1,4 +1,4 @@
-# Hangman Game - Guess the Fruit! 🍎🍌
+# Hangman Game - Guess the Fruit! 
 
 A simple, fun, and classic **Hangman** game implemented in Python where the player has to guess a secret fruit name by suggesting letters within a limited number of attempts.
 
