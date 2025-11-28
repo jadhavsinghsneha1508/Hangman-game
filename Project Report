@@ -1,0 +1,116 @@
+PYTHON PROJECT REPORT
+NAME:-Sneha Jadhav 
+REG.NO.:-25BAI1265
+
+INTRODUCTION TO PROBLEM SOLVING
+Problem-solving is a systematic process to overcome challenges. First, clearly define the problem and its root cause. Next, gather relevant information and set specific goals. Then, brainstorm multiple creative solutions without judgment. Evaluate each option based on feasibility, impact, and risks. Select and implement the best solution with a clear action plan. Finally, review the results, measure success, and learn from the experience. This structured approach—define, research, ideate, decide, act, review—turns obstacles into opportunities and builds stronger decision-making skills for life.
+
+PROBLEM STATEMENT
+Build a Python console Hangman: Random fruit word from list. Guess letters to reveal (all occurrences); show _ initially. Len(word)+2 wrong guesses. Win: full reveal before chances out. Lose: reveal word. Validate single letters only, no repeats. Handle errors.
+
+FUNCTIONAL REQUIREMENTS
+The system implements a console-based Hangman game focused on fruit names. It randomly selects a secret word from a predefined list using random.choice() and initially displays underscores (_) for each letter. The player guesses one letter at a time via input(). The program enforces strict validation: input must be a single alphabetic character; non-alphabetic entries, multiple characters, or previously guessed letters are rejected with clear error messages.
+Correct guesses instantly reveal all occurrences of that letter in their correct positions. The player is allowed (length of word + 2) wrong guesses. Progress is tracked using a string (letterGuessed) and win condition is checked via collections.Counter equality.
+When the player completes the word before exhausting chances, the game declares “Congratulations, You won!”. If chances reach zero without completion, it displays “You lost!” and reveals the secret word. The program gracefully handles KeyboardInterrupt with a friendly exit message.
+Key Pointers:
+- random.choice() for word selection
+- Input validation (isalpha(), len==1, no repeats)
+- Multi-occurrence reveal
+- Counter-based win detection
+- Fixed chances: len(word)+2
+- Clean win/lose messages
+- KeyboardInterrupt handling
+
+NON FUNCTIONAL REQUIREMENTS
+The Hangman game shall deliver a smooth, responsive console experience with near-instantaneous response to every user input (under 0.1 seconds), ensuring no perceptible lag even on modest hardware. It must remain stable and crash-free under all conditions, gracefully handling invalid inputs, repeated guesses, non-alphabetic characters, and sudden KeyboardInterrupt without throwing unhandled exceptions. Usability is prioritized through clear, friendly prompts and precise error messages that guide beginners effectively. The program must be highly portable, relying solely on Python’s standard library (random and collections modules), guaranteeing execution on any system with Python 3.6 or higher, without requiring external packages or installation steps.
+Code maintainability is emphasized via meaningful variable names, inline comments, and logical structure, making future enhancements (such as adding themed word lists or difficulty levels) straightforward. Security is ensured by never executing or persisting user input. The game remains lightweight and scalable, supporting thousands of words with zero impact on performance or memory usage.
+SYSTEM ARCHITECTURE
+The Hangman game follows a simple, linear, single-threaded procedural architecture built entirely in Python using only the standard library. It operates as a standalone console application with a monolithic structure composed of sequential execution blocks within a single script file. The main control flow resides in the `__name__ == '__main__'` block, orchestrating the entire game loop.
+ Core components include:  
+Word Selection Module (random.choice) – picks a secret word at startup. 
+Display Manager – prints current state (underscores and revealed letters).
+Input Validator – checks for single alphabetic character, uniqueness, and validity. 
+Game State Manager – tracks guessed letters (string + Counter), remaining chances, and win/lose conditions. 
+Game Loop Controller – while-loop driven by chances and win-flag.  
+Output Handler – displays win/lose messages and final word reveal.  
+
+Key Architecture Pointers:
+Monolithic single-file design
+Procedural paradigm (no classes/OOP)
+ Event-driven by user input in a loop
+Stateless between turns except tracked variables
+Zero external dependencies
+Synchronous, blocking I/O (input())
+Highly readable linear flow
+ Easy to debug and extend
+
+
+DESIGN DECISIONS AND RATIONALE
+ Procedural, not OOP → simple & beginner-friendly 
+Only standard library → zero dependencies, runs anywhere  
+Chances = len(word)+2 → balanced difficulty 
+Counter() for win check → clean, handles duplicates perfectly  
+Reveal all matching letters → standard, fast, fun  
+Strict layered input validation → no crashes, clear errors  
+Single file → easy to read/share  
+KeyboardInterrupt handled → polite exit  
+
+IMPLEMENTATION DETAILS
+ Fruits stored in multiline string → split() → list 
+ `word = random.choice(someWords)`  
+Chances = `len(word) + 2`  
+`letterGuessed` = string (not list/set)  
+Correct guess → `letterGuessed += guess * word.count(guess)`  
+ Win check → `Counter(letterGuessed) == Counter(word)`  
+Display: `for char in word: print(char if char in letterGuessed else '_', end=' ')`  
+Input validation order: isalpha() → len==1 → not in letterGuessed  
+Invalid input → no chance lost  
+ Wrong guess → chances -= 1  
+`flag = 1` breaks on win 
+ `try-except KeyboardInterrupt` → clean exit  
+Zero external libs, ~60 LOC, fully procedural
+
+TESTING APPROACH
+- Mock `input()` & `random.choice`  
+- Test win (`Counter` equal), lose (chances = 0)  
+- Test invalid inputs → no chance loss  
+- Test repeated guesses → rejected  
+- Test duplicate letters (apple, banana)  
+- Test edge: shortest/longest words  
+- Test KeyboardInterrupt → clean exit  
+- 100% branch coverage with pytest + mock  
+- Manual playtest 10+ rounds  
+
+CHALLENGES FACED
+- Repeated letters broke win check → Fixed with `Counter()`  
+- Invalid input cost chances → Moved `chances -= 1` after validation  
+- Hard to break double loop on win → Added `flag`  
+- Ugly Ctrl+C crash → Caught `KeyboardInterrupt`  
+- Displaying progress was messy → Cleaned with simple condition  
+
+LEARNINGS AND KEY TAKEAWAYS 
+- Use `Counter()` for perfect Hangman win detection  
+- Don’t punish invalid inputs with chance loss  
+- Validate first, then deduct chances  
+- Flag beats double break  
+- Always catch `KeyboardInterrupt` in CLI games  
+- Simplicity > forced OOP  
+- Clean, readable code wins every time
+
+FUTURE ENHANCEMENTS
+- Counter() handles dups  
+- Validate 1st, deduct later  
+- Flag exits loops  
+- Catch Ctrl+C  
+- Simple > complex
+
+RESOURCES/REFERENCES
+Perplexity
+GeeksforGeek
+Grok
+Module 1,2,3,4,5
+
+
+
+
+
