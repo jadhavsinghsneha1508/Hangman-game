@@ -1,0 +1,44 @@
+PROBLEM STATEMENT
+Develop a simple, interactive command-line Hangman game in Python where the secret word is always the name of a fruit, 
+randomly chosen from a predefined list each time the game is played. The program must initially display the word as a series 
+of underscores representing each unguessed letter and grant the player a limited number of attempts equal to the length 
+of the secret word plus two extra chances. The player guesses one letter at a time; the input must be strictly validated to 
+accept only single alphabetic characters, reject repeated guesses with a clear message, and ignore invalid entries
+(numbers, symbols, or multiple characters) without penalizing the player. Correct guesses reveal the letter in all its correct positions, 
+while incorrect guesses reduce the remaining attempts. The game ends with a win and congratulatory message if the player fully uncovers
+the word before running out of attempts, or with a loss message revealing the correct word if attempts are exhausted.
+The program should handle unexpected interruptions gracefully and rely solely on Python’s standard library, delivering a
+clean, engaging, and bug-free fruit-themed Hangman experience.
+
+SCOPE OF THE PROJECT
+Simple single-player, text-based Hangman game in Python that randomly picks a fruit name, lets the user guess letters with `word length + 2` attempts,
+shows progress, validates input, and declares win/loss — pure console, no graphics, no extra features. Lightweight, beginner-friendly, educational script using only standard Python.
+
+TARGET USERS
+- Python beginners learning loops, strings, conditionals, and input handling  
+- Students/teachers using it as a simple classroom coding example or exercise  
+- Anyone who wants a quick, no-install, text-based game to play in the terminal for fun  
+- Hobbyists looking for a minimal Hangman script to modify or extend  
+
+Perfect for learners and casual terminal gamers — not aimed at advanced users or those wanting graphics/multiplayer.
+
+FEATURES
+- Random fruit word selection every game  
+- Hint: “It’s a name of a fruit”  
+- Displays word as underscores (e.g., `_ _ _ _ _`)  
+- Generous chances: word length + 2 attempts  
+- Smart input validation:  
+  – Only single letters allowed  
+  – Rejects numbers/symbols  
+  – Prevents repeat guesses with message  
+- Reveals correct letters in correct positions instantly  
+- Shows remaining chances  
+- Clear win message + word reveal on victory  
+- Clear lose message + correct word on failure  
+- Handles Ctrl+C gracefully (“Bye! Try again.”)  
+- 100% standard Python – no extra installs needed  
+- Tiny, clean, beginner-friendly code  
+
+Pure console, educational, fun, and instantly playable!
+
+
