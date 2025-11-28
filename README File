@@ -2,7 +2,18 @@ Hangman Game - Guess the Fruit!
 
 A simple, fun, and classic **Hangman** game implemented in Python where the player has to guess a secret fruit name by suggesting letters within a limited number of attempts.
 
-## Features
+**Short Overview:**
+A simple **command-line Hangman game** in Python that:
+- Randomly picks a fruit name from a predefined list.
+- Gives the player `length of word + 2` chances.
+- Shows underscores for unguessed letters.
+- Accepts one letter at a time, validates input (only single new letters).
+- Reveals correct letters in their positions.
+- Uses `Counter` to detect when the full word is guessed.
+- Ends with **"You won!"** if guessed correctly or **"You lost!"** + reveals the word if chances run out.
+Basic but functional fruit-themed Hangman (with a few small bugs in the display/win-check logic).
+
+Features
 - Randomly selects a fruit from a predefined list
 - Gives a hint that the word is a fruit
 - Provides `word length + 2` guessing chances
@@ -11,7 +22,91 @@ A simple, fun, and classic **Hangman** game implemented in Python where the play
 - Win/Lose conditions with the secret word revealed at the end
 - Graceful handling of KeyboardInterrupt (Ctrl+C)
 
-## How to Play
+Technologies & Tools Used in This Hangman Code
+
+| Category              | Tool / Feature                          | Purpose |
+|-----------------------|-----------------------------------------|-----------------------------------------------|
+| **Language**          | Python 3                                | Core programming language |
+| **Standard Library**  | `random`                                | Randomly select the secret word |
+| **Standard Library**  | `collections.Counter`                  | Compare guessed letters with word (handles duplicates) |
+| **Input/Output**      | `print()` and `input()`                 | Display game state and get user guesses |
+| **String methods**    | `.split()`, `.isalpha()`, `.count()`    | Process word list and validate/input handling |
+| **Exception handling**| `try-except` (ValueError & KeyboardInterrupt) | Prevent crashes on bad input or Ctrl+C |
+| **Control flow**      | `while`, `for`, `if-elif-else`, `break` | Game loop and logic |
+| **Data structures**   | `str`, `list` (implicit)                | Store word and guessed letters |
+No external libraries or frameworks** – pure Python standard library only.  
+Very lightweight and beginner-friendly.
+
+Steps to install and run this hangman game 
+Here are the **super-simple steps** to run this Hangman game on your computer (works on Windows, macOS, or Linux):
+1. **Make sure Python is installed**  
+   - Open your terminal (Mac/Linux) or Command Prompt/PowerShell (Windows)  
+   - Type:  
+     ```
+     python --version
+     ```  
+     or  
+     ```
+     python3 --version
+     ```  
+   - If you see something like `Python 3.8+`, you're good.  
+   - If not, download and install Python from: https://www.python.org/downloads/
+
+2. **Create the game file**  
+   - Open any text editor (Notepad, VS Code, Sublime, etc.)  
+   - Copy the entire Hangman code you posted earlier  
+   - Save it as: `hangman.py`  
+     (Important: file name must end with `.py`)
+
+3. **Run the game**  
+   - Open terminal/command prompt  
+   - Navigate to the folder where you saved `hangman.py`  
+     Example:  
+     ```bash
+     cd Desktop
+     cd Games
+     ```  
+   - Then run:  
+     ```bash
+     python hangman.py
+     ```  
+     or on some systems:  
+     ```bash
+     python3 hangman.py
+     ```
+
+That’s it! The game will start immediately.
+**No installation of extra packages needed** — everything used (`random`, `collections`) comes built-in with Python.
+
+Quick Testing Instructions
+
+1. Save the code as `hangman.py`  
+2. Open terminal / command prompt in that folder  
+3. Run:  
+   ```bash
+   python hangman.py
+   ```
+   (or `python3 hangman.py`)
+
+**Test Cases to Try Right Away** (just type these letters one by one):
+
+| Secret Word (example) | Fast Win (type these letters) | Fast Lose (type wrong letters) |
+|-----------------------|-------------------------------|--------------------------------|
+| apple                 | a → p → l → e                 | x → z → q → k → m → n → … (until chances = 0) |
+| banana                | b → a → n                     | x → z → q → w → …             |
+| mango                 | m → a → n → g → o             | x → z → q → …                 |
+
+**What to Check Quickly**:
+- Underscores appear correctly at start  
+- Correct letters reveal in the right places  
+- Wrong guess → chances decrease  
+- Repeated letter → “You have already guessed that letter”  
+- Win → “Congratulations, You won!”  
+- Lose → “You lost! … The word was …”
+
+That’s all! Run it 2–3 times with the above inputs and you’ve fully tested it.
+
+How to Play
 1. Run the script.
 2. A secret word (a fruit name) is chosen randomly.
 3. You’ll see underscores representing each letter of the word.
@@ -20,8 +115,8 @@ A simple, fun, and classic **Hangman** game implemented in Python where the play
 6. You have **length of word + 2** chances.
 7. Guess the full word before running out of chances to win!
 
-## Requirements
+ Requirements
 - Python 3.x
 - No external libraries required (uses only built-in `random` and `collections.Counter`)
 
-## Word List (Fruits Included)
+Word List (Fruits Included)
